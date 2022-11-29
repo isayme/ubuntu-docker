@@ -2,9 +2,8 @@ name: Build & Push Docker Image
 
 on:
   workflow_dispatch:
-  # schedule:
-  # run at 8,10,12,14,16 hour every day CST
-  # - cron: '0 0 * * *'
+  schedule:
+    - cron: '0 0 * * 1'
 
 jobs:
   docker:
