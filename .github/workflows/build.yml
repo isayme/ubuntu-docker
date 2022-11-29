@@ -7,6 +7,9 @@ on:
 
 jobs:
   docker:
+    strategy:
+      matrix:
+        tag: [ubuntu:20.04, ubuntu:22.04]
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
@@ -26,4 +29,6 @@ jobs:
             linux/amd64
             linux/arm64/v8
             linux/arm/v7
-          tags: isayme/ubuntu:20.04
+          build-args: |
+            FROM_IMAGE=${{ matrix.tag }}
+          tags: isayme/${{ matrix.tag }}
