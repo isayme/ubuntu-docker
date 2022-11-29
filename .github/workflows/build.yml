@@ -31,4 +31,4 @@ jobs:
             linux/arm/v7
           build-args: |
             FROM_IMAGE=${{ matrix.tag }}
-          tags: isayme/${{ matrix.tag }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.tag }}
